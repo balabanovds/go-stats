@@ -1,11 +1,11 @@
 package snmp
 
 import (
+	g "balabanovds/go-stats/globs"
 	"fmt"
 	"strconv"
 	"strings"
 	"time"
-	g "vimp/globs"
 
 	snmp "github.com/soniah/gosnmp"
 )

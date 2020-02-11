@@ -16,7 +16,7 @@ Functions of current app:
 -   [ ] change logging to zap or zerolog
 -   [ ] use SQLite to store info about network elements and policy used
 -   [ ] restructure this app to become a micro-service, use REST API for frontend
--   [ ] add another micro-service to replace legacy scripts to collect staticstics via snmp
+-   [ ] add another micro-service to replace legacy scripts to collect statistics via snmp
 -   [ ] move functional of snmp (trusted managers) to new micro-service
 -   [ ] use InfluxDB or VictoriaMetrics to store statics
 -   [ ] use protobuf + grpc to connect services

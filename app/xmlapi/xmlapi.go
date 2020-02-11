@@ -1,8 +1,9 @@
 package xmlapi
 
 import (
+	g "balabanovds/go-stats/globs"
 	"log"
-	g "vimp/globs"
+	// g "vimp/globs"
 )
 
 const (

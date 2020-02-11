@@ -1,11 +1,11 @@
 package utils
 
 import (
+	g "balabanovds/go-stats/globs"
 	"fmt"
 	"log"
 	"os"
 	"path/filepath"
-	g "vimp/globs"
 )
 
 const (

@@ -1,6 +1,7 @@
 package utils
 
 import (
+	g "balabanovds/go-stats/globs"
 	"crypto/aes"
 	"crypto/cipher"
 	"crypto/md5"
@@ -9,7 +10,6 @@ import (
 	"encoding/hex"
 	"fmt"
 	"io"
-	g "vimp/globs"
 )
 
 const (

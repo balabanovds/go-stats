@@ -1,12 +1,12 @@
 package xmlapi
 
 import (
+	"balabanovds/go-stats/app/utils"
+	g "balabanovds/go-stats/globs"
 	"encoding/xml"
 	"errors"
 	"fmt"
 	"strings"
-	g "vimp/globs"
-	"vimp/utils"
 )
 
 // policies struct contains slice of fetched policies and error object

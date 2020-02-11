@@ -1,6 +1,7 @@
 package xmlapi
 
 import (
+	g "balabanovds/go-stats/globs"
 	"bytes"
 	"crypto/tls"
 	"errors"
@@ -9,7 +10,6 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
-	g "vimp/globs"
 )
 
 func xmlapiRequest(ip string, query *string) ([]byte, error) {

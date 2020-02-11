@@ -1,11 +1,11 @@
 package xmlapi
 
 import (
+	"balabanovds/go-stats/app/utils"
+	g "balabanovds/go-stats/globs"
 	"encoding/xml"
 	"fmt"
 	"strings"
-	g "vimp/globs"
-	"vimp/utils"
 )
 
 // Elements contains slice of NetworkElements and possible error
