@@ -1,8 +1,8 @@
 package utils
 
 import (
+	g "balabanovds/go-stats/globs"
 	"testing"
-	g "vimp/globs"
 )
 
 func TestSplitSlice(t *testing.T) {

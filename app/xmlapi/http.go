@@ -1,6 +1,7 @@
 package xmlapi
 
 import (
+	g "balabanovds/go-stats/globs"
 	"bytes"
 	"crypto/tls"
 	"errors"
@@ -8,17 +9,15 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strconv"
-	"strings"
-	g "vimp/globs"
 )
 
-func xmlapiRequest(ip string, query *string) ([]byte, error) {
+func xmlapiRequest(ip string, query []byte) ([]byte, error) {
 	url := fmt.Sprintf("https://%s:8443%s",
 		ip,
 		"/xmlapi/invoke")
-	data := []byte(strings.TrimSpace(*query))
+	//data := []byte(strings.TrimSpace(query))
 
-	req, err := http.NewRequest("POST", url, bytes.NewReader(data))
+	req, err := http.NewRequest("POST", url, bytes.NewReader(query))
 	if err != nil {
 		g.Debugf("ERROR: Create request object. %v", err.Error())
 		return nil, errors.New(err.Error())

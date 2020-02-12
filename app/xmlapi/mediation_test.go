@@ -39,7 +39,7 @@ func TestMediationUnmarshalling(t *testing.T) {
 	</SOAP:Envelope>
 	`))
 
-	policies := unmarshallMediation(answer)
+	policies := unmarshalMediation(answer)
 
 	if len(policies.Policies) != 2 {
 		t.Errorf("Length expected 2 but got %v", len(policies.Policies))

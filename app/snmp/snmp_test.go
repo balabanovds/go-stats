@@ -1,8 +1,8 @@
 package snmp
 
 import (
+	g "balabanovds/go-stats/globs"
 	"testing"
-	g "vimp/globs"
 )
 
 func TestTrustedManagerForMPRs(t *testing.T) {

@@ -1,28 +1,26 @@
 servers:
-  - 10.188.33.4
-  - 10.188.33.5
-  - 10.188.36.4
-  - 10.188.36.5
+    # IPv4 adresses here
+    - 1.1.1.1
 trusted-managers:
-  - 10.188.33.11
-  - 10.183.0.5
+    # IPv4 addresses here
+    - 11.1.1.1
 xmlapi:
-  login: xmlapi-login-here
-  # this is encrypted password
-  # use -crypt flag to generate this
-  password: encrypted-password-here
+    login: xmlapi-login-here
+    # this is encrypted password
+    # use -crypt flag to generate this
+    password: encrypted-password-here
 snmp:
-  # this is a number of routines run for SNMP socket
-  threads: 500
+    # this is a number of routines run for SNMP socket
+    threads: 500
 log:
-  syslog:
-    tag: VIMP_STAT
-    # EMERGENCY, ALERT, CRITICAL, ERROR, WARNING, NOTICE, INFO, DEBUG
-    severity: DEBUG
-    # KERN, USER, MAIL, DAEMON, AUTH, SYSLOG, LPR, NEWS, UUCP, CRON, AUTHPRIV, FTP
-    # LOCAL0, LOCAL1, LOCAL2, LOCAL3, LOCAL4, LOCAL5, LOCAL6, LOCAL7
-    facility: LOCAL7
+    syslog:
+        tag: VIMP_STAT
+        # EMERGENCY, ALERT, CRITICAL, ERROR, WARNING, NOTICE, INFO, DEBUG
+        severity: DEBUG
+        # KERN, USER, MAIL, DAEMON, AUTH, SYSLOG, LPR, NEWS, UUCP, CRON, AUTHPRIV, FTP
+        # LOCAL0, LOCAL1, LOCAL2, LOCAL3, LOCAL4, LOCAL5, LOCAL6, LOCAL7
+        facility: LOCAL7
 fs:
-  destination-dir: ./.hosts
-  # number of elements per file
-  number-per-file: 1000
+    destination-dir: ./.hosts
+    # number of elements per file
+    number-per-file: 1000

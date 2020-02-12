@@ -1,9 +1,9 @@
 package xmlapi
 
 import (
+	g "balabanovds/go-stats/globs"
 	"strings"
 	"testing"
-	g "vimp/globs"
 )
 
 func TestUnmarshallNode(t *testing.T) {
@@ -48,7 +48,7 @@ func TestUnmarshallNode(t *testing.T) {
 }
 
 func TestFetchNEsGorutinesNonBuffered(t *testing.T) {
-	g.InitConst()
+	g.InitConst("config.yml")
 	ch := make(chan *elements)
 
 	p := g.Policy{

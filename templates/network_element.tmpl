@@ -1,0 +1,15 @@
+{{ define "content" }}
+
+<fullClassName>netw.NodeDiscoveryControl</fullClassName>
+<filter>
+    <and>
+        <equal name="state" value="1"/>
+        <equal name="readMediationPolicyId" value="{{ .PolicyID }}"/>
+    </and>
+</filter>
+<resultFilter>
+            <attribute>routerId</attribute>
+            <attribute>productType</attribute>
+</resultFilter>
+
+{{ end }}

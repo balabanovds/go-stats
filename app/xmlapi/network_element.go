@@ -1,11 +1,11 @@
 package xmlapi
 
 import (
+	"balabanovds/go-stats/app/utils"
+	g "balabanovds/go-stats/globs"
+	"bytes"
 	"encoding/xml"
 	"fmt"
-	"strings"
-	g "vimp/globs"
-	"vimp/utils"
 )
 
 // Elements contains slice of NetworkElements and possible error
@@ -58,44 +58,29 @@ func fetchElements(server string, policy g.Policy, out chan<- *elements) {
 		Policy: policy,
 		Server: server,
 	}
+
 	decrPassword, err := utils.Decrypt(g.Config.Xmlapi.Password)
 	if err != nil {
 		g.Fatalf("UTILS_CRYPT:FATAL Decrypt password err %v", err)
 	}
-	query := strings.TrimSpace(fmt.Sprintf(`
-	<?xml version="1.0" encoding="UTF-8"?>
-	<!--
-	get all nodes by MediationPolicyID
-	-->
-	<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
-	<SOAP:Header>
-		<header xmlns="xmlapi_1.0">
-		<security>
-			<user>%s</user>
-			<password hashed="false">%s</password>
-		</security>
-		<requestID>client1:0</requestID>
-		</header>
-	</SOAP:Header>
-	<SOAP:Body>
-		<find xmlns="xmlapi_1.0">
-		<fullClassName>netw.NodeDiscoveryControl</fullClassName>
-		<filter>
-			<and>
-				<equal name="state" value="1"/>
-				<equal name="readMediationPolicyId" value="%d"/>
-			</and>
-		</filter>
-		<resultFilter>
-					<attribute>routerId</attribute>
-					<attribute>productType</attribute>
-		</resultFilter>
-			</find>
-	</SOAP:Body>
-	</SOAP:Envelope>
-	`, g.Config.Xmlapi.Login, decrPassword, policy.ID))
 
-	resp, err := xmlapiRequest(server, &query)
+	data := struct {
+		User     string
+		Password string
+		PolicyID int
+	}{
+		User:     g.Config.Xmlapi.Login,
+		Password: decrPassword,
+		PolicyID: policy.ID,
+	}
+	var query bytes.Buffer
+
+	err = generateText(&query, g.BaseDir, data, "layout", "network_element")
+	if err != nil {
+		g.Fatalf(err.Error())
+	}
+
+	resp, err := xmlapiRequest(server, query.Bytes())
 	if err != nil {
 		els.Err = err
 		out <- els

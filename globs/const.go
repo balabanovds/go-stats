@@ -1,10 +1,8 @@
 package globs
 
 import (
-	"io/ioutil"
-	"path/filepath"
-
 	"gopkg.in/yaml.v2"
+	"io/ioutil"
 )
 
 // Configuration struct to parse config.json file
@@ -48,10 +46,9 @@ var Config Configuration
 var BaseDir string
 
 // InitConst init constants
-func InitConst() {
+func InitConst(file string) {
 
-	data, err := ioutil.ReadFile(filepath.Join(BaseDir, "config.yml"))
-	//data, err := ioutil.ReadFile("/home/dbalaban/dev/go/src/vimp/config.yml")
+	data, err := ioutil.ReadFile(file)
 	if err != nil {
 		Fatalf("ReadFile() config err %v", err)
 	}

@@ -1,8 +1,9 @@
 package xmlapi
 
 import (
+	g "balabanovds/go-stats/globs"
 	"log"
-	g "vimp/globs"
+	// g "vimp/globs"
 )
 
 const (
@@ -10,6 +11,7 @@ const (
 	tagMediation = "XMLAPI_MEDIATION"
 	tagElements  = "XMLAPI_ELEMENTS"
 )
+
 
 // Fetch function fetches mediations and network_elements
 // from remote servers via XMLAPI interface

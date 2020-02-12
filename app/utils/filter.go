@@ -1,8 +1,8 @@
 package utils
 
 import (
+	g "balabanovds/go-stats/globs"
 	"errors"
-	g "vimp/globs"
 )
 
 // GetMPRAndMPReElements filters for ElementType:

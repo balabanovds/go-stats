@@ -1,10 +1,10 @@
 package snmp
 
 import (
+	"balabanovds/go-stats/app/utils"
+	g "balabanovds/go-stats/globs"
 	"log"
 	"sync"
-	g "vimp/globs"
-	"vimp/utils"
 )
 
 const (
