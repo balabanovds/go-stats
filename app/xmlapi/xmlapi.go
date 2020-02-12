@@ -12,6 +12,7 @@ const (
 	tagElements  = "XMLAPI_ELEMENTS"
 )
 
+
 // Fetch function fetches mediations and network_elements
 // from remote servers via XMLAPI interface
 func Fetch(ipList []string) []g.Element {

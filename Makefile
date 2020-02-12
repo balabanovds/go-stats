@@ -6,6 +6,7 @@ run-save: build
 build: clean
 	go build -o build/$(EXEC)
 	cp config.yml build/
+	rsync templates/* build/templates/
 
 clean:
 	rm -rf build
